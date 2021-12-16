@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar asignatura;
+
+public <asignatura> = fundamentos de programacion | algebra | calculo | inteligencia de negocio | ciencia de datos | metaeuristica | fundamentos de redes;

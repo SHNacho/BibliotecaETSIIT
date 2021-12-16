@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar acciones;
+
+public <accion> = consultar informacion de otro libro | consultar informacion de una asignatura | salir;

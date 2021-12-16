@@ -1,0 +1,22 @@
+<vxml version="2.1" xml:lang="en-US" application="root.vxml">
+
+	<menu>
+		<block>
+			<prompt bargein="false"> Hello! </prompt>
+			<break time="500ms"/>
+		</block>
+
+		<prompt>In case you want to get information about a book, please press 1 or just say books.</prompt>
+		<prompt>In case you want the books related to a subject, press 2 or say subjects.</prompt>
+
+			<choice dtmf="1" next="informacionLibro_en-US.vxml">
+				books
+			</choice>
+
+			<choice dtmf="2" next="librosAsignatura_en-US.vxml">
+				subjects
+			</choice>
+
+	</menu>	
+
+</vxml>

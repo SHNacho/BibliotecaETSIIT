@@ -1,0 +1,7 @@
+<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+
+	<form id="salida">
+		<throw event="exit_español"/>
+	</form>
+
+</vxml>

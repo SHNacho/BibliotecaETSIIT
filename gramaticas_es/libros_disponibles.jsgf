@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar libros_disponibles;
+
+public <libros_disponibles> = calculo | metaeuristicas | algebra | c mas mas | analisis de datos | ciencia de datos | fisica | programacion | direcciones ip ;

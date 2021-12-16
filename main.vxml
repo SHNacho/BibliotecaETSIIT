@@ -1,0 +1,31 @@
+<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+  <script src="scripts/bienvenida_hora.js"/>
+
+  <var name="libro_global" scope="document"/>
+
+  <catch event="nomatch noinput" count ="3">
+    <exit/>
+  </catch>
+
+  <menu>
+
+    <property name="bargein" value="true"/> 
+
+    <prompt><value expr="calcularHoraEspañol()"/> . Bienvenido al servicio de biblioteca de la <emphasis> Universidad de Granada </emphasis></prompt>
+    <prompt xml:lang="en-US"><value expr="calcularHoraIngles()"/> . Welcome to the book reservation service of the <emphasis> University of Granada</emphasis></prompt>
+    
+    <prompt>Para hablar conmigo en Español, pulsa 1 o diga <emp level="strong">español</emp></prompt>
+    <prompt xml:lang="en-US">To talk with me in English, press 2 or say <emp level="strong">English</emp></prompt>
+
+      <choice dtmf="1" next="elegir_funcionalidad_spanish.vxml">
+        Español
+      </choice>
+
+      <choice dtmf="2" next="elegir_funcionalidad_english.vxml">
+        <grammar src="gramaticas_ingles/detectar_idioma_ingles.jsgf"/>
+          Ingles
+      </choice>
+
+  </menu>
+
+</vxml>

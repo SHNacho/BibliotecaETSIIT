@@ -1,0 +1,23 @@
+<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+
+	<menu>
+		<block>
+			<prompt bargein="false"> Hola! </prompt>
+			<break time="500ms"/>
+		</block>
+
+		<prompt>Para consultar informacion sobre un libro, pulse 1 o diga libros.</prompt>
+		<prompt>Para obtener los libros relacionados con una asignatura, pulse 2 o diga asignaturas.
+		</prompt>
+
+			<choice dtmf="1" next="informacionLibro.vxml">
+				libros
+			</choice>
+
+			<choice dtmf="2" next="librosAsignatura.vxml">
+				asignaturas
+			</choice>
+
+	</menu>	
+
+</vxml>

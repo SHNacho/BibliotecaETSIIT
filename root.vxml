@@ -1,0 +1,46 @@
+<vxml version="2.1" xml:lang="es-ES">
+
+    <catch event="help_libros_disponibles">
+        <prompt>Los libros disponibles para reservar son: cálculo, física, algebra, c mas mas, analisis de datos, ciencia de datos, metaheuristicas, programacion y direcciones ip. </prompt>
+        <reprompt/>
+    </catch>
+
+    <catch event="help_asignaturas">
+        <prompt>Las asignaturas disponibles para consultar son: cálculo, fundamentos físicos, fundamentos de programación, metaheuristica, fundamentos de redes </prompt>
+        <reprompt/>
+    </catch>
+
+    <catch event="help_libros_disponibles_en-US">
+        <prompt xml:lang="en-US">The available books for reservation are: calculus, physics, algebra, c plus plus, data analysis, data science, metaheuristics, programming and ip direcions </prompt>
+        <reprompt/>
+    </catch>
+
+    <catch event="exit_español">
+        <prompt>Gracias por contar con nuestro servicio. Si desea alguna otra cuestion, no dude en volver a llamar. Hasta pronto!</prompt>
+        <exit/>
+    </catch>
+
+    <catch event="exit_en-US">
+        <prompt xml:lang="en-US">Thanks for using our service. We look forward to seeing you again.</prompt>
+        <exit/>
+    </catch>
+    
+    <catch event="help_salir_informacion_libro">
+        <prompt> Si quiere hacer otra consulta diga: consultar informacion de otro libro. 
+                Tambien puede dejar una sugerencia, diciendo dejar una sugerencia, o salir de la aplicacion diciendo salir.
+        </prompt>
+    </catch>
+
+    
+    <catch event="help_salir_informacion_libro_en-US">
+        <prompt xml:lang="en-US"> If you would like to check information about another book say: check information about another book.
+        You can also leave some feedback saying leave a suggestion or exit the app saying exit. 
+        </prompt>
+    </catch>
+
+      <catch event="help_reserva">
+        <prompt> Para poder reservar un libro debe ser alumno de la UGR
+        </prompt>
+    </catch>
+
+</vxml>

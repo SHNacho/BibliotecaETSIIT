@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar salir;
+
+public <salir> = consultar informacion de otro libro | dejar una sugerencia | salir | no;

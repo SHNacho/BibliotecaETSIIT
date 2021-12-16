@@ -1,0 +1,62 @@
+<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+
+	<link event="help">
+		<grammar src="gramaticas_es/ayuda.jsgf"/>
+	</link>
+
+	<script src="scripts/obtenerInformacionLibro.js"/>
+
+	<form id="reserva_libro">
+
+        <field name="nombre_alumno">
+			<grammar src="gramaticas_es/nombres.jsgf"/>			
+			<prompt>
+				Necesito que me diga su nombre para reservarlo?
+			</prompt>
+            <help>
+				<throw event="help_reserva"/>
+			</help>
+			<noinput>
+				<throw event="help_reserva"/>
+			</noinput>
+		</field>
+
+        <field name="confirmar_nombre">
+			<grammar src="gramaticas_es/confirmacion_libro.jsgf"/>
+			<prompt bargein="false">
+				Su nombre es <value expr="nombre_alumno"/>.
+				Correcto?
+			</prompt>
+			<filled>
+				<if cond="confirmar_nombre=='si' &amp;&amp; confirmar_nombre$.confidence &gt; 0.4">
+					De acuerdo, libro reservado
+                    <break time="400ms"/>
+                    <goto next="#preguntar_acciones"/>
+				<else/>
+					Entonces, procedo a preguntarle de nuevo.
+					<clear namelist="nombre_alumno confirmar_nombre"/>
+				</if>
+			</filled>
+		</field>
+    </form>
+        
+    <menu id="preguntar_acciones">
+
+		<prompt>Si deseas consultar informacion de otro libro diga libros o pulse uno<break time="400ms"/></prompt>
+		<prompt>Para consultar información de otra asignatura diga asignatura o pulse dos<break time="400ms"/></prompt>
+        <prompt>Para salir diga salir o pulse 3</prompt>
+
+			<choice dtmf="1" next="informacionLibro.vxml">
+				libros
+			</choice>
+
+			<choice dtmf="2" next="librosAsignatura.vxml">
+				asignatura
+			</choice>
+
+            <choice dtmf="3" next="salir.vxml">
+				salir
+			</choice>
+	</menu>	
+
+</vxml>

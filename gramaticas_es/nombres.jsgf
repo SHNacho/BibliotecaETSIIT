@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+grammar nombres;
+
+public <nombres> = nacho sanchez herrera | ramon lopez cozar | jacobo casado de gracia | luis fernandez;

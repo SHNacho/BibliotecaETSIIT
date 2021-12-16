@@ -1,0 +1,58 @@
+[
+    {
+        "nombre" : "calculo",
+        "asignatura" : "calculo",
+        "autores" : "Marcelino Cuevas",
+        "edición" : "sexta",
+        "unidades" : 5
+    },
+    {
+        "nombre" : "algebra",
+        "asignatura" : "algebra",
+        "autores" : "Jose Padial",
+        "edición" : "quinta",
+        "unidades" : 5
+    },
+    {
+        "nombre" : "analisis de datos",
+        "asignatura" : "inteligencia de negocio",
+        "autores" : "Jose Angel Lopez",
+        "edición" : "Cuarta",
+        "unidades" : 10
+    },
+    {
+        "nombre" : "ciencia de datos",
+        "asignatura" : "ciencia de datos",
+        "autores" : "Marcelino Cuevas",
+        "edición" : "sexta",
+        "unidades" : 5
+    },
+    {
+        "nombre" : "metaeuristicas",
+        "asignatura" : "metaeuristica",
+        "autores" : "Marcelino Cuevas",
+        "edición" : "sexta",
+        "unidades" : 5
+    },
+    {
+        "nombre" : "programacion",
+        "asignatura" : "fundamentos de programacion",
+        "autores" : "Marcelino Cuevas",
+        "edición" : "sexta",
+        "unidades" : 5
+    },
+    {
+        "nombre" : "c mas mas",
+        "asignatura" : "fundamentos de programacion",
+        "autores" : "Marcelino Cuevas",
+        "edición" : "sexta",
+        "unidades" : 5
+    },
+    {
+        "nombre" : "direcciones ip",
+        "asignatura" : "fundamentos de redes",
+        "autores" : "Marcelino Cuevas",
+        "edición" : "sexta",
+        "unidades" : 5
+    }
+]

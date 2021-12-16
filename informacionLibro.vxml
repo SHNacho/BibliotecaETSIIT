@@ -1,0 +1,108 @@
+<vxml version="2.1" xml:lang="es-ES" application="root.vxml">
+
+	<link event="help">
+		<grammar src="gramaticas_es/ayuda.jsgf"/>
+	</link>
+
+	<script src="scripts/obtenerInformacionLibro.js"/>
+
+	<block>
+			<prompt bargein="false"> Bienvenido al servicio de informacion de libros de la UGR. </prompt>
+			<break time="500ms"/>
+	</block>
+
+	<form id="informacion_libro">
+
+		<field name="libro">
+			<grammar src="gramaticas_es/libros_disponibles.jsgf"/>
+			<prompt count="1" bargein="false"> Sobre que libro quieres obtener informacion?</prompt>
+			<prompt count="3" bargein="false"> Por favor, diga ayuda para saber las opciones disponibles. </prompt>
+			<help>
+				<throw event="help_libros_disponibles"/>
+			</help>
+			<noinput>
+				<throw event="help_libros_disponibles"/>
+			</noinput>
+		</field>
+		
+
+		<field name="confirmar_libro">
+			<grammar src="gramaticas_es/confirmacion_libro.jsgf"/>
+			<prompt bargein="false">
+				Usted ha dicho que quiere informacion sobre	<value expr="libro"/>.
+				Es cierto?
+			</prompt>
+			<filled>
+				<if cond="confirmar_libro=='si' &amp;&amp; confirmar_libro$.confidence &gt; 0.4">
+					Muy bien. Continuemos.
+					<assign name="libro_global" expr="libro"/>
+                    <goto next="#decir_informacion"/>
+				<else/>
+					Entonces, procedo a preguntarle de nuevo.
+					<clear namelist="libro confirmar_libro"/>
+				</if>
+			</filled>
+		</field>
+    </form>
+        
+    <form id="decir_informacion">
+
+        <block>
+            <prompt bargein="false">
+                He de decirle que 
+                <emphasis level="strong">
+                <value expr="obtenerInformacionLibro(libro_global)"/>
+                </emphasis>
+                <break time="400ms"/>
+            </prompt>
+        </block>
+
+		<field name="confirmar_reserva">
+			<grammar src="gramaticas_es/confirmacion_libro.jsgf"/>
+			<prompt>
+				Quiere reservarlo?
+			</prompt>
+			<filled>
+				<if cond="confirmar_reserva=='si' &amp;&amp; confirmar_reserva$.confidence &gt; 0.4">
+					De acuerdo
+                    <goto next="reservarLibro.vxml"/>
+				<else/>
+				</if>
+			</filled>
+		</field>
+
+		<field name="opcion">
+			<grammar src="gramaticas_es/salir.jsgf"/>
+			<prompt count="1"> Desea consultar información de otro libro, o dejar alguna sugerencia? </prompt>
+			<prompt count="3"> Por favor, diga ayuda para saber las opciones disponibles. </prompt>
+			<filled>
+				<if cond="opcion=='consultar informacion de otro libro' &amp;&amp; opcion$.confidence &gt; 0.5">
+					<clear namelist="libro confirmar_libro"/>
+					<goto next="#informacion_libro"/>
+				<elseif cond="opcion=='dejar una sugerencia' &amp;&amp; opcion$.confidence &gt; 0.5"/>
+					<goto next="#sugerencias"/>
+				<elseif cond="opcion=='no' || opcion=='salir'"/>
+					<throw event="exit_español"/>
+				<else/>
+					<prompt> No le he entendido. Podria repetirlo? </prompt>
+					<clear namelist="opcion"/>
+				</if>
+			</filled>
+			<help>
+				<throw event="help_salir"/>
+			</help>
+			<noinput>
+				<throw event="exit_español"/>
+			</noinput>
+		</field>
+	</form>
+
+	<form id="sugerencias">
+		<record name="sugerencia" beep="true" maxtime="10s"	finalsilence="2000ms" dtmfterm="true" type="audio/x-wav">
+			<prompt> Para dejar una sugerencia, graba tu mensaje tras oir el pitido. </prompt>
+			<noinput> No se ha oido nada. </noinput>
+		</record>
+		<throw event="exit_español"/>
+	</form>
+
+</vxml>
